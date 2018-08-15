@@ -1,15 +1,15 @@
 [submodule "deps/asmjit/asmjit"]
 	path = deps/asmjit/asmjit
-	url = https://github.com/RaptorFactor/asmjit
+	url = git@github.com:asmjit/asmjit.git
 [submodule "deps/pugixml/pugixml"]
 	path = deps/pugixml/pugixml
-	url = https://github.com/RaptorFactor/pugixml
+	url = git@github.com:zeux/pugixml.git
 [submodule "deps/udis86/udis86"]
 	path = deps/udis86/udis86
-	url = https://github.com/RaptorFactor/udis86
+	url = git@github.com:vmt/udis86.git
 [submodule "deps/imgui/imgui"]
 	path = deps/imgui/imgui
-	url = https://github.com/RaptorFactor/imgui
+	url = git@github.com:ocornut/imgui.git
 [submodule "deps/chaiscript/chaiscript"]
 	path = deps/chaiscript/chaiscript
-	url = https://github.com/RaptorFactor/ChaiScript.git
+	url = git@github.com:ChaiScript/ChaiScript.git

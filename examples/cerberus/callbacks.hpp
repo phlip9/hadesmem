@@ -77,7 +77,7 @@ public:
         // TODO: Re-enable this once we can implement it properly.
         // detail::LogWrapper(boost::current_exception_diagnostic_information());
         HADESMEM_DETAIL_TRACE_A(
-          boost::current_exception_diagnostic_information());
+          boost::current_exception_diagnostic_information().c_str());
       }
     }
   }

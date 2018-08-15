@@ -27,10 +27,10 @@
     <ClCompile Include="..\..\..\deps\imgui\imgui\examples\directx11_example\imgui_impl_dx11.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\deps\imgui\imgui\examples\directx9_example\imgui_impl_dx9.cpp">
+    <ClCompile Include="..\..\..\deps\imgui\imgui\examples\directx10_example\imgui_impl_dx10.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\deps\imgui\imgui\examples\directx10_example\imgui_impl_dx10.cpp">
+    <ClCompile Include="..\..\..\deps\imgui\imgui\examples\directx9_example\imgui_impl_dx9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

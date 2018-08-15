@@ -168,3 +168,4 @@
 /build/vs/imgui_sandbox/Release
 imgui.ini
 /build/vs/imgui_sandbox/*.user
+.vs
