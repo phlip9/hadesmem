@@ -125,6 +125,14 @@
     <ClInclude Include="..\..\..\include\memory\hadesmem\thread_list.hpp" />
     <ClInclude Include="..\..\..\include\memory\hadesmem\write.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\asmjit\asmjit.vcxproj">
+      <Project>{0c721345-2478-4288-b9be-d1235c6a8f87}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\udis86\udis86.vcxproj">
+      <Project>{8ed308b0-d0c4-4bb6-93d8-a4b3a8085dab}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F4A13F46-F555-4851-9172-B50F59336973}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
