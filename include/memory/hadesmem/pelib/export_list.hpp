@@ -26,15 +26,15 @@ namespace hadesmem
 // ExportIterator satisfies the requirements of an input iterator
 // (C++ Standard, 24.2.1, Input Iterators [input.iterators]).
 template <typename ExportT>
-class ExportIterator : public std::iterator<std::input_iterator_tag, ExportT>
+class ExportIterator
 {
 public:
-  using BaseIteratorT = std::iterator<std::input_iterator_tag, ExportT>;
+  using BaseIteratorT = std::iterator_traits<ExportT*>;
   using value_type = typename BaseIteratorT::value_type;
   using difference_type = typename BaseIteratorT::difference_type;
   using pointer = typename BaseIteratorT::pointer;
   using reference = typename BaseIteratorT::reference;
-  using iterator_category = typename BaseIteratorT::iterator_category;
+  using iterator_category = std::input_iterator_tag;
 
   constexpr ExportIterator() noexcept : impl_()
   {
