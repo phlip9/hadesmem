@@ -105,9 +105,9 @@ protected:
   virtual void WritePatch() override
   {
     hadesmem::detail::AcquireSRWLock const lock(
-      &GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
+      &PatchDr::GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
 
-    auto& veh_hooks = GetVehHooks();
+    auto& veh_hooks = PatchDr::GetVehHooks();
 
     HADESMEM_DETAIL_ASSERT(veh_hooks.find(target_) == std::end(veh_hooks));
     veh_hooks[target_] = this;
@@ -122,7 +122,7 @@ protected:
 
     HADESMEM_DETAIL_TRACE_A("Setting DR hook.");
 
-    auto& dr_hooks = GetDrHooks();
+    auto& dr_hooks = PatchDr::GetDrHooks();
     auto const thread_id = ::GetCurrentThreadId();
     HADESMEM_DETAIL_ASSERT(dr_hooks.find(thread_id) == std::end(dr_hooks));
 
@@ -184,11 +184,11 @@ protected:
   virtual void RemovePatch() override
   {
     hadesmem::detail::AcquireSRWLock const lock(
-      &GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
+      &PatchDr::GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
 
     HADESMEM_DETAIL_TRACE_A("Unsetting DR hook.");
 
-    auto& dr_hooks = GetDrHooks();
+    auto& dr_hooks = PatchDr::GetDrHooks();
     auto const thread_id = ::GetCurrentThreadId();
     auto const iter = dr_hooks.find(thread_id);
     HADESMEM_DETAIL_ASSERT(iter != std::end(dr_hooks));
@@ -208,7 +208,7 @@ protected:
     (void)dr_hooks_removed;
     HADESMEM_DETAIL_ASSERT(dr_hooks_removed);
 
-    auto& veh_hooks = GetVehHooks();
+    auto& veh_hooks = PatchDr::GetVehHooks();
     auto const veh_hooks_removed = veh_hooks.erase(target_);
     (void)veh_hooks_removed;
     HADESMEM_DETAIL_ASSERT(veh_hooks_removed);

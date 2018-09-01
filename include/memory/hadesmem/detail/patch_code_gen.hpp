@@ -551,7 +551,7 @@ inline void WriteStubGate(Process const& process,
                           void* get_orig_user_ptr_ptr_fn,
                           void* get_ret_address_ptr_ptr_fn)
 {
-  using StubT = typename PatchDetourStub<TargetFuncT>;
+  using StubT = PatchDetourStub<TargetFuncT>;
 #if defined(HADESMEM_DETAIL_ARCH_X64)
   auto const stub_gate =
     GenStubGate64(stub, get_orig_user_ptr_ptr_fn, get_ret_address_ptr_ptr_fn);

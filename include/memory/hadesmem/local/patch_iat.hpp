@@ -103,7 +103,7 @@ public:
       detour_{std::move(other.detour_)},
       context_(std::move(other.context_)),
       eat_hook_{std::move(other.eat_hook_)},
-      iat_hooks_{std::move(other.iat_hooks_)},
+      iat_hooks_{std::move(other.iat_hooks_)}
   {
   }
 

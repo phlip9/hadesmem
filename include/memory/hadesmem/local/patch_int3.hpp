@@ -51,6 +51,8 @@ namespace hadesmem
 template <typename TargetFuncT> class PatchInt3 : public PatchVeh<TargetFuncT>
 {
 public:
+  using DetourFuncT = typename PatchVeh<TargetFuncT>::DetourFuncT;
+
   explicit PatchInt3(Process const& process,
                      TargetFuncT target,
                      DetourFuncT const& detour)
@@ -86,11 +88,11 @@ protected:
 
   virtual void WritePatch() override
   {
-    auto& veh_hooks = GetVehHooks();
+    auto& veh_hooks = PatchInt3::GetVehHooks();
 
     {
       hadesmem::detail::AcquireSRWLock const lock(
-        &GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
+        &PatchInt3::GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
 
       HADESMEM_DETAIL_ASSERT(veh_hooks.find(target_) == std::end(veh_hooks));
       veh_hooks[target_] = this;
@@ -115,9 +117,9 @@ protected:
 
     {
       hadesmem::detail::AcquireSRWLock const lock(
-        &GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
+        &PatchInt3::GetSrwLock(), hadesmem::detail::SRWLockType::Exclusive);
 
-      auto& veh_hooks = GetVehHooks();
+      auto& veh_hooks = PatchInt3::GetVehHooks();
       veh_hooks.erase(target_);
     }
   }
