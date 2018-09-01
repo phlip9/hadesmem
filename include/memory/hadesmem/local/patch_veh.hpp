@@ -50,6 +50,8 @@ namespace hadesmem
 template <typename TargetFuncT> class PatchVeh : public PatchDetour<TargetFuncT>
 {
 public:
+  using DetourFuncT = typename PatchDetour<TargetFuncT>::DetourFuncT;
+
   explicit PatchVeh(Process const& process,
                     TargetFuncT target,
                     DetourFuncT const& detour)
