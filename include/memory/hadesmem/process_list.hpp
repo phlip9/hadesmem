@@ -26,15 +26,14 @@ namespace hadesmem
 // (C++ Standard, 24.2.1, Input Iterators [input.iterators]).
 template <typename ProcessEntryT>
 class ProcessIterator
-  : public std::iterator<std::input_iterator_tag, ProcessEntryT>
 {
 public:
-  using BaseIteratorT = std::iterator<std::input_iterator_tag, ProcessEntryT>;
+  using BaseIteratorT = std::iterator_traits<ProcessEntryT*>;
   using value_type = typename BaseIteratorT::value_type;
   using difference_type = typename BaseIteratorT::difference_type;
   using pointer = typename BaseIteratorT::pointer;
   using reference = typename BaseIteratorT::reference;
-  using iterator_category = typename BaseIteratorT::iterator_category;
+  using iterator_category = std::input_iterator_tag;
 
   constexpr ProcessIterator() noexcept
   {

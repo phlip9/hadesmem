@@ -25,16 +25,14 @@ namespace detail
 // iterator (C++ Standard, 24.2.1, Input Iterators [input.iterators]).
 template <typename VectoredHandlerEntryT>
 class VectoredHandlerIterator
-  : public std::iterator<std::input_iterator_tag, VectoredHandlerEntryT>
 {
 public:
-  using BaseIteratorT =
-    std::iterator<std::input_iterator_tag, VectoredHandlerEntryT>;
+  using BaseIteratorT = std::iterator_traits<VectoredHandlerEntryT*>;
   using value_type = typename BaseIteratorT::value_type;
   using difference_type = typename BaseIteratorT::difference_type;
   using pointer = typename BaseIteratorT::pointer;
   using reference = typename BaseIteratorT::reference;
-  using iterator_category = typename BaseIteratorT::iterator_category;
+  using iterator_category = std::input_iterator_tag;
 
   constexpr VectoredHandlerIterator() noexcept
   {
